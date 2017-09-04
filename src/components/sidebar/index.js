@@ -6,6 +6,9 @@ import MenuIcon from 'material-ui/svg-icons/navigation/menu'
 import { white } from 'material-ui/styles/colors';
 import TeamIcon from 'material-ui/svg-icons/social/people';
 
+import {withRouter} from "react-router-dom";
+
+
 import Heading from "./heading.js";
 import {List, ListItem} from "material-ui/List";
 import Divider from 'material-ui/Divider';
@@ -52,7 +55,7 @@ class Nav extends React.Component {
                                 flexGrow: 1
                             }}
                            >
-                           <ListItem primaryText="My Team Members" leftIcon={<TeamIcon />} />
+                           <ListItem primaryText="My Team Members" leftIcon={<TeamIcon />} onTouchTap={()=> this.props.history.push("/team") }/>
                            <ListItem primaryText="Current Incidents" leftIcon={<EventIcon />} />
                     </List>
                 </Drawer>
@@ -61,4 +64,4 @@ class Nav extends React.Component {
     }
 }
 
-export default Nav;
+export default withRouter(Nav);
