@@ -5,6 +5,7 @@ import Nav from './components/nav';
 import Home from './routes/home';
 import Hello from './routes/hello';
 import Team from './routes/team';
+import Admin from './routes/admin';
 import './app.css';
 
 class App extends Component {
@@ -16,6 +17,7 @@ class App extends Component {
           <div>
             <Nav />
             <Route exact path="/" component={Team} />
+            <Route path="/admin" component={Admin} />
           </div>
         </BrowserRouter>
       </Provider>
