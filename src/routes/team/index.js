@@ -1,5 +1,6 @@
 import React from 'react';
 import io from 'socket.io-client';
+import { Switch, Route } from 'react-router-dom';
 import PeopleCard from "../../components/employee";
 
 class Team extends React.Component {
@@ -24,12 +25,22 @@ class Team extends React.Component {
     const { people } = this.state;
 
     return (
-      <div>
-        <h1>My Team</h1>
-        {people.map((person) => (
-          <PeopleCard data={person} key={person.id} />
-        ))}
-      </div>
+      <Switch>
+        <Route exact path="/" component={() => (
+          <div>
+            <h1>My Team</h1>
+            {people.map((person) => (
+              <PeopleCard data={person} key={person.id} />
+            ))}
+          </div>
+        )} />
+        <Route exact path="/:id" component={({ match: { params: { id } } }) => {
+          if (people[Number(id)]) {
+            return <p>info for {people[Number(id)].name}</p>;
+          }
+          return <p>not found</p>;
+        }} />
+      </Switch>
     );
   }
 }

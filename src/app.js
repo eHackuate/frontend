@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { Switch, BrowserRouter, Route } from 'react-router-dom';
 import Nav from './components/nav';
 import Team from './routes/team';
 import Admin from './routes/admin';
@@ -14,8 +14,11 @@ class App extends Component {
         <BrowserRouter>
           <div>
             <Nav />
-            <Route exact path="/" component={Team} />
-            <Route path="/admin" component={Admin} />
+            <Switch>
+              <Route path="/admin" component={Admin} />
+              {/* last resort render root */}
+              <Route path="/" component={Team} />
+            </Switch>
           </div>
         </BrowserRouter>
       </Provider>
