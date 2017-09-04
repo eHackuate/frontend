@@ -1,12 +1,16 @@
 import React from 'react';
 import { Card, CardHeader,CardActions } from 'material-ui/Card';
 import IconButton from 'material-ui/IconButton';
-import { red300, green300 } from 'material-ui/styles/colors';
-import PhoneIcon from 'material-ui/svg-icons/communication/phone';
+import Chip from 'material-ui/Chip';
+import { red300, green300, orange300 } from 'material-ui/styles/colors';
+
+import MessageIcon from 'material-ui/svg-icons/communication/message';
 import AlertIcon from 'material-ui/svg-icons/alert/error';
 import CheckIcon from 'material-ui/svg-icons/action/check-circle';
+import UnknownIcon from 'material-ui/svg-icons/action/help';
 import CalendarIcon from 'material-ui/svg-icons/action/event';
 
+import ContactModal from '../contact';
 
 class EmployeeCard extends React.Component {
   render() {
@@ -23,24 +27,23 @@ class EmployeeCard extends React.Component {
               <div><b>Job Title:</b> {role}</div>
               <div><b>Last Seen:</b> {lastSeen}</div>
               {/* testing only */}
-              <div>{chain.map(({ text }) => <p>{text}</p>)}</div>
+              <div>
+                  {chain.map(({ text }) => <Chip>{text}</Chip>)}
+                </div>
             </div>
           }
           avatar={avatar}
         />
         <CardActions>
-          <IconButton>
-            <PhoneIcon />
-          </IconButton>
+          <ContactModal data={data}/>
           <IconButton>
             <CalendarIcon />
           </IconButton>
           <IconButton>
-          {status === 'okay' ? (
-            <CheckIcon color={green300}/>
-          ) : (
-            <AlertIcon color={red300}/>
-          )}
+            {status == "okay" ? 
+                <CheckIcon color={green300}/> : 
+                status == "idk" ? <UnknownIcon color={orange300} /> : 
+                <AlertIcon color={red300}/>}
           </IconButton>
         </CardActions>
       </Card>
