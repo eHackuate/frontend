@@ -4,7 +4,7 @@ import io from 'socket.io-client';
 
 class Admin extends Component {
   componentWillMount() {
-    this.socket = io('https://app.erfan.space');
+    this.socket = io('http://app.erfan.space');
   }
 
   componentWillUnmount() {
