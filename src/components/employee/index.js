@@ -22,6 +22,8 @@ class EmployeeCard extends React.Component {
             <div>
               <div><b>Job Title:</b> {role}</div>
               <div><b>Last Seen:</b> {lastSeen}</div>
+              {/* testing only */}
+              <div>{chain.map((text) => <p>{text}</p>)}</div>
             </div>
           }
           avatar={avatar}
