@@ -4,7 +4,7 @@ import io from 'socket.io-client';
 
 class Admin extends Component {
   componentWillMount() {
-    this.socket = io('http://localhost:8080');
+    this.socket = io('https://app.erfan.space');
   }
 
   componentWillUnmount() {
@@ -15,9 +15,16 @@ class Admin extends Component {
     this.socket.emit('calendar');
   }
 
+  createIncident = () => {
+    this.socket.emit('incident');
+  }
+
   render() {
     return (
-      <RaisedButton label="Calendar" onClick={this.handleCal} />
+      <div>
+        <RaisedButton label="Calendar" onClick={this.handleCal} />
+        <RaisedButton label="🚨 Incident" onClick={this.createIncident} />
+      </div>
     );
   }
 
