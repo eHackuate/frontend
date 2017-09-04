@@ -1,4 +1,5 @@
 import React from 'react';
+import io from 'socket.io-client';
 import PeopleCard from "../../components/employee";
 
 class Team extends React.Component {
@@ -19,6 +20,7 @@ class Team extends React.Component {
           lastSeen="2pm"
           avatar="https://avatars3.githubusercontent.com/u/9994172?v=4&s=460"
           status={true}/>
+
         <PeopleCard
           name="Ramzi Hossari"
           jobTitle="Software Developer"

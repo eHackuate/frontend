@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import Nav from './components/nav';
-import Home from './routes/home';
-import Hello from './routes/hello';
 import Team from './routes/team';
 import Admin from './routes/admin';
 import './app.css';
