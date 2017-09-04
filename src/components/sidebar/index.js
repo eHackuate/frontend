@@ -34,7 +34,6 @@ class Nav extends React.Component {
           onRequestChange={(open) => this.setState({open})}
         >
           <Heading />
-          <Divider />
           <List
             style={{
               padding: 'none',
