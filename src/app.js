@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Nav from './components/nav';
 import Home from './routes/home';
 import Hello from './routes/hello';
+import Team from './routes/team';
 import './app.css';
 
 class App extends Component {
@@ -16,6 +17,7 @@ class App extends Component {
             <Nav />
             <Route exact path="/" component={Home} />
             <Route path="/hello" component={Hello} />
+            <Route path="/team" component={Team} />
           </div>
         </BrowserRouter>
       </Provider>
