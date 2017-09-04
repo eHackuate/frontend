@@ -10,17 +10,21 @@ import CalendarIcon from 'material-ui/svg-icons/action/event';
 
 class EmployeeCard extends React.Component {
   render() {
+    const { data } = this.props;
+    // some stuff isn't gonna be used... here for future refernce
+    const { id, name, avatar, number, role, lastSeen, status, chain } = data;
+
     return (
       <Card>
         <CardHeader
-          title={this.props.name}
+          title={name}
           subtitle={
             <div>
-              <div><b>Job Title:</b> {this.props.jobTitle}</div>
-              <div><b>Last Seen:</b> {this.props.lastSeen}</div>
+              <div><b>Job Title:</b> {role}</div>
+              <div><b>Last Seen:</b> {lastSeen}</div>
             </div>
           }
-          avatar={this.props.avatar}
+          avatar={avatar}
         />
         <CardActions>
           <IconButton>
@@ -30,7 +34,7 @@ class EmployeeCard extends React.Component {
             <CalendarIcon />
           </IconButton>
           <IconButton>
-          {this.props.status ? (
+          {status === 'okay' ? (
             <CheckIcon color={green300}/>
           ) : (
             <AlertIcon color={red300}/>

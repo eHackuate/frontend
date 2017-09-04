@@ -2,7 +2,6 @@ import React from 'react';
 import {withRouter} from "react-router-dom";
 import Drawer from 'material-ui/Drawer';
 import {List, ListItem} from "material-ui/List";
-import Divider from 'material-ui/Divider';
 import IconButton from 'material-ui/IconButton';
 import MenuIcon from 'material-ui/svg-icons/navigation/menu'
 import { white } from 'material-ui/styles/colors';
@@ -43,7 +42,7 @@ class Nav extends React.Component {
               flexGrow: 1
             }}
           >
-            <ListItem primaryText="My Team Members" leftIcon={<TeamIcon />} onTouchTap={()=> this.props.history.push('/team')}/>
+            <ListItem primaryText="My Team Members" leftIcon={<TeamIcon />} onTouchTap={()=> this.props.history.push('/')}/>
             <ListItem primaryText="Current Incidents" leftIcon={<EventIcon />} />
           </List>
         </Drawer>

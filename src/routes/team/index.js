@@ -3,8 +3,17 @@ import io from 'socket.io-client';
 import PeopleCard from "../../components/employee";
 
 class Team extends React.Component {
+  state = { people: [] };
+
   componentWillMount() {
-    this.socket = io('http://app.erfan.space');
+    // this.socket = io('http://app.erfan.space');
+    this.socket = io('http://localhost:8080');
+    this.socket.on('connect', () => {
+      this.socket.emit('imfrontend');
+    });
+    this.socket.on('update', (people) => {
+      this.setState({ people });
+    });
   }
 
   componentWillUnmount() {
@@ -12,20 +21,13 @@ class Team extends React.Component {
   }
 
   render() {
+    const { people } = this.state;
+
     return (
       <div>
-        <PeopleCard
-          name="Erfan Norozi"
-          jobTitle="Software Developer"
-          lastSeen="2pm"
-          avatar="https://avatars3.githubusercontent.com/u/9994172?v=4&s=460"
-          status={true}/>
-
-        <PeopleCard
-          name="Ramzi Hossari"
-          jobTitle="Software Developer"
-          avatar="https://avatars1.githubusercontent.com/u/14273489?v=4&s=460"
-          status={false}/>
+        {people.map((person) => (
+          <PeopleCard data={person} key={person.id} />
+        ))}
       </div>
     );
   }
