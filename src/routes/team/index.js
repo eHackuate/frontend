@@ -10,12 +10,12 @@ class Team extends React.Component {
                     jobTitle="Software Developer"
                     lastSeen="2pm" 
                     avatar="https://avatars3.githubusercontent.com/u/9994172?v=4&s=460" 
-                    status={false}/>
+                    status={true}/>
                 <PeopleCard 
                     name="Ramzi Hossari" 
                     jobTitle="Software Developer" 
                     avatar="https://avatars1.githubusercontent.com/u/14273489?v=4&s=460" 
-                    status={true}/>
+                    status={false}/>
             </div>
 
         );
