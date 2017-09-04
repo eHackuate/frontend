@@ -17,7 +17,7 @@ class EmployeeCard extends React.Component {
     const { data } = this.props;
     // some stuff isn't gonna be used... here for future refernce
     const { id, name, avatar, number, role, lastSeen, status, chain } = data;
-
+    console.log(chain)
     return (
       <Card>
         <CardHeader
@@ -27,9 +27,9 @@ class EmployeeCard extends React.Component {
               <div><b>Job Title:</b> {role}</div>
               <div><b>Last Seen:</b> {lastSeen}</div>
               {/* testing only */}
-              <div>
-                  {chain.map(({ text }) => <Chip>{text}</Chip>)}
-                </div>
+              <h3>Latest Messages</h3>
+                  {chain.map((message) => 
+                  <Chip style={message.type == "from" ? {left: 0} : {marginLeft: "100%"}}>{message.text}</Chip>)}
             </div>
           }
           avatar={avatar}

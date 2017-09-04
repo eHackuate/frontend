@@ -4,6 +4,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Nav from './components/nav';
 import Team from './routes/team';
 import Admin from './routes/admin';
+import Employee from './routes/employee';
 import './app.css';
 
 class App extends Component {
@@ -16,6 +17,7 @@ class App extends Component {
             <Nav />
             <Route exact path="/" component={Team} />
             <Route path="/admin" component={Admin} />
+            <Route path="/employee" component={Employee} />
           </div>
         </BrowserRouter>
       </Provider>
