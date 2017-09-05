@@ -43,7 +43,7 @@ class Nav extends React.Component {
             }}
           >
             <ListItem primaryText="My Team Members" leftIcon={<TeamIcon />} onTouchTap={()=> this.props.history.push('/')}/>
-            <ListItem primaryText="Current Incidents" leftIcon={<EventIcon />} />
+            <ListItem primaryText="Current Incidents" leftIcon={<EventIcon />} onTouchTap={()=> this.props.history.push('/incidents')} />
           </List>
         </Drawer>
       </div>
