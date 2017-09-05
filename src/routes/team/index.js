@@ -3,7 +3,7 @@ import io from 'socket.io-client';
 import { Switch, Route } from 'react-router-dom';
 import PeopleCard from "../../components/employee";
 import Chip from "material-ui/Chip"
-import { Card, CardText, CardHeader } from 'material-ui/Card';
+import { Card, CardText, CardHeader,CardActions } from 'material-ui/Card';
 import {List, ListItem} from "material-ui/List"
 import Divider from "material-ui/Divider"
 import EmailIcon from "material-ui/svg-icons/communication/email"
@@ -11,7 +11,10 @@ import PhoneIcon from "material-ui/svg-icons/communication/phone"
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import CalendarIcon from 'material-ui/svg-icons/action/event';
 import MessageIcon from 'material-ui/svg-icons/communication/message';
-
+import SendMessageIcon from 'material-ui/svg-icons/content/send';
+import TextField from "material-ui/TextField";
+import IconButton from 'material-ui/IconButton';
+import Calendar from './calendarComponent';
 class Team extends React.Component {
   state = { people: [] };
 
@@ -36,7 +39,7 @@ class Team extends React.Component {
     return(
       <Grid fluid>
       <Row>
-        <Col md={3}>
+        <Col md={4}>
           <Card style={{minHeight: "100vh"}}>
                   <CardHeader
                   title={person.name}
@@ -52,7 +55,7 @@ class Team extends React.Component {
                   <CardText style={{width: "100%", maxWidth: "100%", overflow: "wrap"}}>
                       <List>
                           <ListItem leftIcon={<EmailIcon />} style={{overflow: "wrap"}}>
-                              {personSplit[0] + "." + personSplit[1] + "@company.com.au"}
+                              {personSplit[0] + "." + personSplit[1] + "@ehackuate.tech"}
                           </ListItem>
                           <ListItem leftIcon={<PhoneIcon />}>
                               {person.number}
@@ -62,28 +65,66 @@ class Team extends React.Component {
                   <Divider />
             </Card>
         </Col>
-        <Col md={3}>
+        <Col md={4}>
           <Card style={{minHeight: "100vh", width: "100%", overflow: "wrap"}}>
               <CardHeader
               title="Communication Log"
               avatar={<MessageIcon />}
               />
-              <CardText>
-                  {person.chain ? person.chain.map((message) => 
-                    <Chip style={message.type === "from" ? {left: 0} : {marginLeft: "100%"}}>{message.text}</Chip>) :
-                    "No Messages Currently"}
+              <CardText style={{padding: "0.5em"}}>
+                  {person.chain && person.chain.map((message) => (
+                      <div style={(message.type === "from") ? 
+                        {
+                          maxWidth: "200px", 
+                          overflowWrap: "break-word",
+                          backgroundColor: "#eee",
+                          padding: "0.75em",
+                          borderRadius: "20px",
+                          marginTop: "10px",
+                          order: 1
+                        } : {
+                          marginLeft: "60%",
+                          textAlign: "right",
+                          maxWidth: "300px", 
+                          overflowWrap: "break-word",
+                          backgroundColor: "#eee",
+                          padding: "0.75em",
+                          borderRadius: "20px",
+                          marginTop: "10px",
+                          order: 1
+                        }
+                      }>
+                          {message.text}
+                      </div>
+                  ))}
               </CardText>
               <Divider />
+              <CardActions>
+                <List>
+                  
+                    <ListItem rightIcon={                    <IconButton style={{display: "inline-block"}}>
+                        <SendMessageIcon />
+                    </IconButton>}>
+                      <TextField
+                        hintText="Enter Message (100 characters)"
+                        floatingLabelText="Send Message"
+                        multiLine={true}
+                        rows={1}
+                        style={{display: "inline-block"}}
+                        />
+                    </ListItem>
+                </List>
+              </CardActions>
           </Card>
         </Col>
-        <Col md={3}>
+        <Col md={4}>
           <Card style={{minHeight: "100vh", width: "100%"}}>
               <CardHeader
               title="Known Calendar Events"
               avatar={<CalendarIcon />}
               />
               <CardText>
-                  
+                  <Calendar />
               </CardText>
               <Divider />
           </Card>
