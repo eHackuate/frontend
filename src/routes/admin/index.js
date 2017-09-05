@@ -16,7 +16,7 @@ class Admin extends Component {
   }
 
   createIncident = () => {
-    this.socket.emit('incident');
+    this.socket.emit('incident', 'Are you okay? (Yes/No)');
   }
 
   render() {
