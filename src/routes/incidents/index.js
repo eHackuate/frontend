@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import XMLParser from 'react-xml-parser';
 import {
   Table,
   TableBody,
