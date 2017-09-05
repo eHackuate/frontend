@@ -4,8 +4,8 @@ import io from 'socket.io-client';
 
 class Admin extends Component {
   componentWillMount() {
-    this.socket = io('http://app.erfan.space');
-    // this.socket = io('http://localhost:8080');
+    this.socket = io('//app.erfan.space');
+    // this.socket = io('//localhost:8080');
   }
 
   componentWillUnmount() {
