@@ -18,7 +18,7 @@ class Incident extends Component {
     type: 'STRUCTURE',
     location: 'QUEENSCLIFF',
     status: 'Responding',
-    size: 'SMALL'
+    size: 'SMALL',
   },
   {
     title: 'SPRINGVALE SOUTH, PATERSON RD',
@@ -29,7 +29,7 @@ class Incident extends Component {
     type: 'ASSIST OTHER AGENCY',
     location: 'SPRINGVALE SOUTH',
     status: 'Responding',
-    size: 'SMALL'
+    size: 'SMALL',
   },
   {
     title: 'CHELTENHAM, JACK RD',
@@ -40,9 +40,9 @@ class Incident extends Component {
     type: 'Hazardous Incident',
     location: 'CHELTENHAM',
     status: 'Under Control',
-    size: 'SMALL'
-  }]
-}
+    size: 'SMALL',
+  }],
+  }
 
   render() {
     return (
@@ -62,7 +62,7 @@ class Incident extends Component {
           </TableRow>
         </TableHeader>
         <TableBody displayRowCheckbox={false}>
-          {this.state.incidents.map((incident) => (
+          {this.state.incidents.map(incident => (
             <TableRow>
               <TableRowColumn selectable={false}>{ incident.title }</TableRowColumn>
               <TableRowColumn selectable={false}>{ incident.agency }</TableRowColumn>
@@ -78,7 +78,7 @@ class Incident extends Component {
           ))}
         </TableBody>
       </Table>
-    )
+    );
   }
 }
 

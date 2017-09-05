@@ -7,7 +7,7 @@ const Nav = () => (
   <AppBar
     title="eHackuate"
     iconElementLeft={<Sidebar />}
-    style={{backgroundColor: '#FF5C5C'}}
+    style={{ backgroundColor: '#FF5C5C' }}
   />
 );
 

@@ -24,7 +24,6 @@ class Admin extends Component {
       </div>
     );
   }
-
 }
 
 export default Admin;

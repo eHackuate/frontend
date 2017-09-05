@@ -1,17 +1,19 @@
 import React from 'react';
-import {withRouter} from "react-router-dom";
+import { withRouter } from 'react-router-dom';
 import Drawer from 'material-ui/Drawer';
-import {List, ListItem} from "material-ui/List";
+import { List, ListItem } from 'material-ui/List';
+
 import IconButton from 'material-ui/IconButton';
-import MenuIcon from 'material-ui/svg-icons/navigation/menu'
+import MenuIcon from 'material-ui/svg-icons/navigation/menu';
 import { white } from 'material-ui/styles/colors';
 import TeamIcon from 'material-ui/svg-icons/social/people';
 import EventIcon from 'material-ui/svg-icons/action/event';
-import Heading from './heading.js';
+
+import Heading from './heading';
 
 class Nav extends React.Component {
   state = {
-    open: false
+    open: false,
   };
 
   handleToggle = () => this.setState({ open: !this.state.open });
@@ -23,14 +25,15 @@ class Nav extends React.Component {
       <div>
         <IconButton
           label="Open Drawer"
-          onClick={this.handleToggle}>
+          onClick={this.handleToggle}
+        >
           <MenuIcon color={white} />
         </IconButton>
         <Drawer
           docked={false}
           width={300}
           open={this.state.open}
-          onRequestChange={(open) => this.setState({open})}
+          onRequestChange={open => this.setState({ open })}
         >
           <Heading />
           <List
@@ -39,11 +42,11 @@ class Nav extends React.Component {
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'space-between',
-              flexGrow: 1
+              flexGrow: 1,
             }}
           >
-            <ListItem primaryText="My Team Members" leftIcon={<TeamIcon />} onTouchTap={()=> this.props.history.push('/')}/>
-            <ListItem primaryText="Current Incidents" leftIcon={<EventIcon />} onTouchTap={()=> this.props.history.push('/incidents')} />
+            <ListItem primaryText="My Team Members" leftIcon={<TeamIcon />} onTouchTap={() => this.props.history.push('/')} />
+            <ListItem primaryText="Current Incidents" leftIcon={<EventIcon />} onTouchTap={() => this.props.history.push('/incidents')} />
           </List>
         </Drawer>
       </div>
