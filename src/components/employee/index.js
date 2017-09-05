@@ -4,7 +4,6 @@ import IconButton from 'material-ui/IconButton';
 import Chip from 'material-ui/Chip';
 import { red300, green300, orange300 } from 'material-ui/styles/colors';
 
-import MessageIcon from 'material-ui/svg-icons/communication/message';
 import AlertIcon from 'material-ui/svg-icons/alert/error';
 import CheckIcon from 'material-ui/svg-icons/action/check-circle';
 import UnknownIcon from 'material-ui/svg-icons/action/help';
@@ -29,7 +28,7 @@ class EmployeeCard extends React.Component {
               {/* testing only */}
               <h3>Latest Messages</h3>
                   {chain.map((message) => 
-                  <Chip style={message.type == "from" ? {left: 0} : {marginLeft: "100%"}}>{message.text}</Chip>)}
+                  <Chip style={message.type === "from" ? {left: 0} : {marginLeft: "100%"}}>{message.text}</Chip>)}
             </div>
           }
           avatar={avatar}
@@ -40,9 +39,9 @@ class EmployeeCard extends React.Component {
             <CalendarIcon />
           </IconButton>
           <IconButton>
-            {status == "okay" ? 
+            {status === "okay" ? 
                 <CheckIcon color={green300}/> : 
-                status == "idk" ? <UnknownIcon color={orange300} /> : 
+                status === "idk" ? <UnknownIcon color={orange300} /> : 
                 <AlertIcon color={red300}/>}
           </IconButton>
         </CardActions>

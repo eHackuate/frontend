@@ -1,7 +1,6 @@
 import React from 'react';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
-import RaisedButton from 'material-ui/RaisedButton';
 import IconButton from 'material-ui/IconButton';
 import MessageIcon from 'material-ui/svg-icons/communication/message';
 
@@ -57,7 +56,7 @@ export default class DialogExampleSimple extends React.Component {
           open={this.state.open}
           onRequestClose={this.handleClose}
         >
-          {name.split(" ")[0]} was last declared {status == "okay" ? "safe" : status == "idk" ? "hasn't responded" : "not safe"}
+          {name.split(" ")[0]} was last declared {status === "okay" ? "safe" : status === "idk" ? "hasn't responded" : "not safe"}
           <br />
         <TextField
             hintText="Enter Message (100 characters)"
