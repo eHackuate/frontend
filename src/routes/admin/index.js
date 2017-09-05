@@ -5,14 +5,12 @@ import io from 'socket.io-client';
 class Admin extends Component {
   componentWillMount() {
     this.socket = io('http://app.erfan.space');
+    // this.socket = io('http://backend.ehackuate.tech');
+    // this.socket = io('http://localhost:8080');
   }
 
   componentWillUnmount() {
     this.socket.close();
-  }
-
-  handleCal = () => {
-    this.socket.emit('calendar');
   }
 
   createIncident = () => {
@@ -22,7 +20,6 @@ class Admin extends Component {
   render() {
     return (
       <div>
-        <RaisedButton label="Calendar" onClick={this.handleCal} />
         <RaisedButton label="🚨 Incident" onClick={this.createIncident} />
       </div>
     );
