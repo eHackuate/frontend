@@ -142,7 +142,9 @@ class Team extends React.Component {
           <div>
             <h1>My Team</h1>
             {people.map((person) => (
-              <PeopleCard data={person} key={person.id} />
+              <div onClick={() => this.props.history.push(`/${person.id}`)}>
+                <PeopleCard data={person} key={person.id} />
+              </div>
             ))}
           </div>
         )} />
