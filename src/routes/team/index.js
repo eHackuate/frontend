@@ -10,7 +10,6 @@ class Team extends React.Component {
 
   componentWillMount() {
     this.socket = io('http://app.erfan.space');
-    // this.socket = io('http://backend.ehackuate.tech');
     // this.socket = io('http://localhost:8080');
     this.socket.on('connect', () => {
       this.socket.emit('imfrontend');
